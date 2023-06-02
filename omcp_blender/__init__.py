@@ -11,10 +11,11 @@ bl_info = {
     "category": "Motion Control",
 }
 
+import bpy
 import sys
 
 # Support reloading non-bpy dependent modules
-if 'rclpy' in locals():
+if "rclpy" in locals():
     import importlib
 
     rclpy = importlib.reload(rclpy)
@@ -23,12 +24,12 @@ else:
 
 
 def register():
+
     # Support reloading for bpy dependent modules
     if "omcp_blender.preferences" in sys.modules:
         import importlib
 
         def reload_module(name):
-            print("CHIIIIII")
             module_name = "%s.%s" % (__name__, name)
             module = importlib.reload(sys.modules[module_name])
             sys.modules[module_name] = module
@@ -40,10 +41,13 @@ def register():
 
     preferences.register()
 
+    domain_id = bpy.context.preferences.addons["omcp_blender"].preferences.domain_id
+    rclpy.init(domain_id=domain_id)
+
 
 def unregister():
     from . import preferences
 
-    #preferences.unregister()
+    preferences.unregister()
 
     rclpy.try_shutdown()
