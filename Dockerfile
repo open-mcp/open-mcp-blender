@@ -14,7 +14,7 @@ RUN apt-get update &&  \
     apt-get install -y python3-pip &&  \
     python3 -m pip install pytest-blender
 
-COPY omcp_blender src/omcp_blender/omcp_blender
+COPY addons src/omcp_blender/addons
 COPY resource src/omcp_blender/resource
 COPY test src/omcp_blender/test
 COPY package.xml src/omcp_blender/package.xml

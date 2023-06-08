@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name="omcp_blender",
     version="0.1.0",
-    packages=["omcp_blender"],
+    packages=["addons/omcp_blender"],
     data_files=[
         ("share/ament_index/resource_index/packages", ["resource/omcp_blender"]),
         ("share/omcp_blender", ["package.xml"]),
