@@ -24,7 +24,6 @@ else:
 
 
 def register():
-
     # Support reloading for bpy dependent modules
     if "omcp_blender.preferences" in sys.modules:
         import importlib

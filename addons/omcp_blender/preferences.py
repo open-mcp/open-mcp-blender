@@ -17,7 +17,7 @@ class OmcpAddonPreferences(bpy.types.AddonPreferences):
     bl_idname = "omcp_blender"
 
     domain_id: IntProperty(
-        name="ROS 22 domain ID",  # noqa: F722
+        name="ROS 2 domain ID",  # noqa: F722
         description="Safe between 0 and 101, inclusive, but possible up to 232",  # noqa: F722
         default=0,
         min=0,

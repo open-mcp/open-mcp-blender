@@ -26,7 +26,6 @@ RUN apt-get update && \
     rosdep install -iy --from-paths src && \
     rm -rf /var/lib/apt/lists/
 
-RUN ls -lah src/omcp_blender
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
     colcon build
 
