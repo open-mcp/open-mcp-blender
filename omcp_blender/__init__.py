@@ -1,3 +1,6 @@
+import bpy
+import sys
+
 bl_info = {
     "name": "omcp",
     "description": "omcp open source motion control photography",
@@ -11,14 +14,11 @@ bl_info = {
     "category": "Motion Control",
 }
 
-import bpy
-import sys
-
 # Support reloading non-bpy dependent modules
 if "rclpy" in locals():
     import importlib
 
-    rclpy = importlib.reload(rclpy)
+    rclpy = importlib.reload(rclpy)  # noqa: F821
 else:
     import rclpy
 
