@@ -28,7 +28,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
-    colcon build
+    colcon build --continue-on-error
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
     colcon test ; \
