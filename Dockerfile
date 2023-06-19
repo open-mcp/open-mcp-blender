@@ -19,9 +19,10 @@ COPY addons src/omcp_blender/addons
 COPY resource src/omcp_blender/resource
 COPY test src/omcp_blender/test
 COPY package.xml src/omcp_blender/package.xml
-COPY pytest.ini src/omcp_blender/pytest.ini
 COPY setup.cfg src/omcp_blender/setup.cfg
 COPY setup.py src/omcp_blender/setup.py
+
+RUN git clone https://github.com/emanuelbuholzer/ros2_blender.git src/ros2_blender
 
 RUN apt-get update && \
     rosdep install -iy --from-paths src && \
