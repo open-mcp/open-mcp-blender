@@ -2,7 +2,7 @@ import bpy
 import sys
 
 bl_info = {
-    "name": "omcp",
+    "name": "omcp_blender",
     "description": "omcp open source motion control photography",
     "author": "Emanuel Buholzer",
     "version": (0, 1, 0),
@@ -19,8 +19,12 @@ if "rclpy" in locals():
     import importlib
 
     rclpy = importlib.reload(rclpy)  # noqa: F821
+    rclpy.logging = importlib.reload(rclpy.logging)
 else:
     import rclpy
+    import rclpy.logging
+
+logger = rclpy.logging.get_logger(__name__)
 
 
 def register():
@@ -40,7 +44,12 @@ def register():
 
     preferences.register()
 
-    domain_id = bpy.context.preferences.addons["omcp_blender"].preferences.domain_id
+    domain_id = 0
+    try:
+        domain_id = bpy.context.preferences.addons["omcp_blender"].preferences.domain_id
+    except KeyError:
+        logger.info("omcp_blender first load")
+
     rclpy.init(domain_id=domain_id)
 
 

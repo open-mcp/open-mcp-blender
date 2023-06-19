@@ -1,3 +1,6 @@
+import os
+from glob import glob
+
 from setuptools import setup
 
 setup(
@@ -7,6 +10,10 @@ setup(
     data_files=[
         ("share/ament_index/resource_index/packages", ["resource/omcp_blender"]),
         ("share/omcp_blender", ["package.xml"]),
+        (
+            os.path.join("share", "omcp_blender", "launch"),
+            glob(os.path.join("launch", "*launch.[pxy][yma]*")),
+        ),
     ],
     install_requires=["setuptools"],
     zip_safe=True,
@@ -14,7 +21,7 @@ setup(
     maintainer_email="emanuel0xb@gmail.com",
     description="TODO: Package description",
     license="TODO: License declaration",
-    tests_require=["pytest", "pytest-blender"],
+    tests_require=["pytest"],
     entry_points={
         "console_scripts": [],
     },
