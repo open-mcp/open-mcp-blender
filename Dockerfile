@@ -29,7 +29,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
-    colcon build --continue-on-error
+    colcon build --symlink-install --continue-on-error
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
     colcon test ; \
