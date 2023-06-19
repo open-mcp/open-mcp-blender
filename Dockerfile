@@ -9,10 +9,11 @@ ENV ROS_OVERLAY /opt/ros/omcp
 
 WORKDIR $ROS_OVERLAY
 
-# TODO: check whether this could be a rosdep dependency
+# Workaround for https://github.com/emanuelbuholzer/omcp_blender/issues/1
 RUN apt-get update &&  \
     apt-get install -y python3-pip &&  \
-    python3 -m pip install pytest-blender
+    python3 -m pip install pytest-blender && \
+    rm -rf /var/lib/apt/lists/
 
 COPY addons src/omcp_blender/addons
 COPY resource src/omcp_blender/resource
@@ -27,7 +28,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
-    colcon build
+    colcon build --continue-on-error
 
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
     colcon test ; \
