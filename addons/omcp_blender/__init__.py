@@ -44,18 +44,10 @@ def register():
 
     preferences.register()
 
-    domain_id = 0
-    try:
-        domain_id = bpy.context.preferences.addons["omcp_blender"].preferences.domain_id
-    except KeyError:
-        logger.info("omcp_blender first load")
-
-    rclpy.init(domain_id=domain_id)
+    assert rclpy.ok()
 
 
 def unregister():
     from . import preferences
 
     preferences.unregister()
-
-    rclpy.try_shutdown()
