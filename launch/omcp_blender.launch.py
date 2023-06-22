@@ -10,9 +10,12 @@ def generate_launch_description():
     declared_arguments = []
 
     ros2_blender_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('ros2_blender'), 'launch'),
-            '/blender.launch.py'])
+        PythonLaunchDescriptionSource(
+            [
+                os.path.join(get_package_share_directory("ros2_blender"), "launch"),
+                "/blender.launch.py",
+            ]
+        )
     )
     declared_arguments.append(ros2_blender_launch)
 

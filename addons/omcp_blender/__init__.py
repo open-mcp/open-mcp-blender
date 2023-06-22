@@ -41,6 +41,8 @@ def register():
     else:
         from . import preferences
 
+    assert rclpy.ok()
+
     preferences.register()
 
     assert rclpy.ok()

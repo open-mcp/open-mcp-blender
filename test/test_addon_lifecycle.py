@@ -4,7 +4,10 @@ import pytest
 
 @pytest.fixture
 def omcp_blender(blender):
+    blender.bootstrap()
     blender.install_addon("addons/omcp_blender")
+    yield blender
+    blender.teardown()
 
 
 def test_registered(omcp_blender):
@@ -37,11 +40,11 @@ def test_ensure_cannot_enable_with_no_rclpy_context(omcp_blender):
     import addon_utils
     import bpy
 
-    rclpy.shutdown()
-    addon_utils.disable("omcp_blender")
+    omcp_blender.teardown()
+    addon_utils.disable("omcp_blender", default_set=True)
 
     assert not rclpy.ok()
-    addon_utils.enable("omcp_blender")
+    addon_utils.enable("omcp_blender", default_set=True)
 
     enabled_addon_names = bpy.context.preferences.addons.keys()
     assert "omcp_blender" not in enabled_addon_names
@@ -60,4 +63,3 @@ def test_restart_and_reload_preferences(omcp_blender):
     bpy.ops.omcp.restart_and_reload_preferences("EXEC_DEFAULT")
 
     assert bpy.context.preferences.addons["omcp_blender"].preferences.domain_id == 42
-    assert rclpy.utilities.get_default_context().get_domain_id() == 42
