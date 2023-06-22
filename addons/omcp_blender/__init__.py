@@ -1,4 +1,3 @@
-import bpy
 import sys
 
 bl_info = {
