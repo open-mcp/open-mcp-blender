@@ -23,26 +23,28 @@ def test_enabled(omcp_blender):
     assert "omcp_blender" in enabled_addon_names
 
 
-def test_ensure_rclpy_shutdown_after_unregister(omcp_blender):
+def test_ensure_no_rclpy_shutdown_after_unregister(omcp_blender):
     import addon_utils
 
     addon_utils.disable("omcp_blender")
 
-    assert not rclpy.ok()
+    assert rclpy.ok()
 
     addon_utils.enable("omcp_blender")
 
 
-def test_ensure_rclpy_shutdown_after_unregister_if_already_shutdown(omcp_blender):
+def test_ensure_cannot_enable_with_no_rclpy_context(omcp_blender):
     import addon_utils
+    import bpy
 
     rclpy.shutdown()
-
     addon_utils.disable("omcp_blender")
 
     assert not rclpy.ok()
-
     addon_utils.enable("omcp_blender")
+
+    enabled_addon_names = bpy.context.preferences.addons.keys()
+    assert "omcp_blender" not in enabled_addon_names
 
 
 def test_restart_and_reload_preferences(omcp_blender):
