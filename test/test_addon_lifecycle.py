@@ -53,9 +53,6 @@ def test_ensure_cannot_enable_with_no_rclpy_context(omcp_blender):
 def test_restart_and_reload_preferences(omcp_blender):
     import bpy
 
-    # Note: this test can fail, because these preferences are persisted in the user prefs
-    bpy.context.preferences.addons["omcp_blender"].preferences.domain_id = 0
-
     assert bpy.context.preferences.addons["omcp_blender"].preferences.domain_id == 0
     assert rclpy.utilities.get_default_context().get_domain_id() == 0
 
