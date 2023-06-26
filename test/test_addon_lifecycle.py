@@ -5,7 +5,7 @@ import pytest
 @pytest.fixture
 def omcp_blender(blender):
     blender.bootstrap()
-    blender.install_addon("addons/omcp_blender")
+    blender.install_addon("omcp_blender")
     yield blender
     blender.teardown()
 
