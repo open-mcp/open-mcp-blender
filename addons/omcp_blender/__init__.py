@@ -45,8 +45,6 @@ def register():
 
     preferences.register()
 
-    assert rclpy.ok()
-
 
 def unregister():
     from . import preferences
