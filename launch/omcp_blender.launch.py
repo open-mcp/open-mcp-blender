@@ -27,7 +27,6 @@ def generate_launch_description():
                         "lib",
                         "python3.10",
                         "site-packages",
-                        "addons",
                         "omcp_blender",
                     ]
                 )

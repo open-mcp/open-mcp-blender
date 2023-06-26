@@ -9,7 +9,7 @@ ENV ROS_OVERLAY /opt/ros/omcp
 
 WORKDIR $ROS_OVERLAY
 
-COPY addons src/omcp_blender/addons
+COPY omcp_blender src/omcp_blender/omcp_blender
 COPY resource src/omcp_blender/resource
 COPY test src/omcp_blender/test
 COPY package.xml src/omcp_blender/package.xml
