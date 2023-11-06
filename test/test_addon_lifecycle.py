@@ -40,7 +40,7 @@ def test_ensure_cannot_enable_with_no_rclpy_context(open-mcp-blender):
     import addon_utils
     import bpy
 
-    open-mcp-blender.teardown()
+    open_mcp_blender.teardown()
     addon_utils.disable("open-mcp-blender", default_set=True)
 
     assert not rclpy.ok()
@@ -57,6 +57,6 @@ def test_restart_and_reload_preferences(open-mcp-blender):
     assert rclpy.utilities.get_default_context().get_domain_id() == 0
 
     bpy.context.preferences.addons["open-mcp-blender"].preferences.domain_id = 42
-    bpy.ops.open-mcp.restart_and_reload_preferences("EXEC_DEFAULT")
+    bpy.ops.open_mcp.restart_and_reload_preferences("EXEC_DEFAULT")
 
     assert bpy.context.preferences.addons["open-mcp-blender"].preferences.domain_id == 42

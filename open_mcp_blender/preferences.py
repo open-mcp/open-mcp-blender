@@ -4,7 +4,7 @@ from bpy.props import IntProperty
 
 
 class ReloadOpenMcpAddonOperator(bpy.types.Operator):
-    bl_idname = "open-mcp.restart_and_reload_preferences"
+    bl_idname = "open_mcp.restart_and_reload_preferences"
     bl_label = "Restart open-mcp and reload the preferences"
 
     def execute(self, context):
@@ -14,7 +14,7 @@ class ReloadOpenMcpAddonOperator(bpy.types.Operator):
 
 
 class OpenMcpAddonPreferences(bpy.types.AddonPreferences):
-    bl_idname = "open-mcp-blender"
+    bl_idname = "open_mcp_blender"
 
     domain_id: IntProperty(
         name="ROS 2 domain ID",  # noqa: F722
@@ -27,7 +27,7 @@ class OpenMcpAddonPreferences(bpy.types.AddonPreferences):
 
     def draw(self, context):
         self.layout.prop(self, "domain_id")
-        self.layout.operator("open-mcp.restart_and_reload_preferences")
+        self.layout.operator("open_mcp.restart_and_reload_preferences")
 
 
 def register():
