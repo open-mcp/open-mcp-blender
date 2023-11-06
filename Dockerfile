@@ -9,7 +9,7 @@ ENV ROS_OVERLAY /opt/ros/open-mcp
 
 WORKDIR $ROS_OVERLAY
 
-COPY open-mcp-blender src/open-mcp-blender/open-mcp-blender
+COPY open_mcp_blender src/open-mcp-blender/open_mcp_blender
 COPY resource src/open-mcp-blender/resource
 COPY test src/open-mcp-blender/test
 COPY package.xml src/open-mcp-blender/package.xml
