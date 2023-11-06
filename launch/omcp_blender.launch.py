@@ -19,15 +19,15 @@ def generate_launch_description():
             ]
         ),
         launch_arguments={
-            "addons": "omcp_blender",
+            "addons": "open-mcp-blender",
             "addon_paths": [
                 PathJoinSubstitution(
                     [
-                        FindPackagePrefix("omcp_blender"),
+                        FindPackagePrefix("open-mcp-blender"),
                         "lib",
                         "python3.10",
                         "site-packages",
-                        "omcp_blender",
+                        "open-mcp-blender",
                     ]
                 )
             ],

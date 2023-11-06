@@ -1,14 +1,14 @@
 import sys
 
 bl_info = {
-    "name": "omcp_blender",
-    "description": "omcp open source motion control photography",
+    "name": "open-mcp-blender",
+    "description": "open-mcp open source motion control photography",
     "author": "Emanuel Buholzer",
     "version": (0, 1, 0),
     "blender": (3, 0, 0),
-    "location": "View3D > Tool Shelf > omcp",
-    "doc_url": "https://https://github.com/emanuelbuholzer/omcp-blender",
-    "tracker_url": "https://github.com/emanuelbuholzer/omcp-blender/issues",
+    "location": "View3D > Tool Shelf > open-mcp",
+    "doc_url": "https://https://github.com/open-mcp/open-mcp-blender",
+    "tracker_url": "https://github.com/open-mcp/open-mcp-blender/issues",
     "support": "COMMUNITY",
     "category": "Motion Control",
 }
@@ -28,7 +28,7 @@ logger = rclpy.logging.get_logger(__name__)
 
 def register():
     # Support reloading for bpy dependent modules
-    if "omcp_blender.preferences" in sys.modules:
+    if "open-mcp-blender.preferences" in sys.modules:
         import importlib
 
         def reload_module(name):

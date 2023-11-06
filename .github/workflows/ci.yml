@@ -1,4 +1,4 @@
-name: Test omcp_blender
+name: Test open-mcp-blender
 
 on:
   schedule:

@@ -4,14 +4,14 @@ from glob import glob
 from setuptools import setup
 
 setup(
-    name="omcp_blender",
+    name="open-mcp-blender",
     version="0.1.0",
-    packages=["omcp_blender"],
+    packages=["open-mcp-blender"],
     data_files=[
-        ("share/ament_index/resource_index/packages", ["resource/omcp_blender"]),
-        ("share/omcp_blender", ["package.xml"]),
+        ("share/ament_index/resource_index/packages", ["resource/open-mcp-blender"]),
+        ("share/open-mcp-blender", ["package.xml"]),
         (
-            os.path.join("share", "omcp_blender", "launch"),
+            os.path.join("share", "open-mcp-blender", "launch"),
             glob(os.path.join("launch", "*launch.[pxy][yma]*")),
         ),
     ],

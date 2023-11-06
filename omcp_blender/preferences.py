@@ -3,18 +3,18 @@ import bpy
 from bpy.props import IntProperty
 
 
-class ReloadOmcpAddonOperator(bpy.types.Operator):
-    bl_idname = "omcp.restart_and_reload_preferences"
-    bl_label = "Restart omcp and reload the preferences"
+class ReloadOpenMcpAddonOperator(bpy.types.Operator):
+    bl_idname = "open-mcp.restart_and_reload_preferences"
+    bl_label = "Restart open-mcp and reload the preferences"
 
     def execute(self, context):
-        addon_utils.disable("omcp_blender")
-        addon_utils.enable("omcp_blender")
+        addon_utils.disable("open-mcp-blender")
+        addon_utils.enable("open-mcp-blender")
         return {"FINISHED"}
 
 
-class OmcpAddonPreferences(bpy.types.AddonPreferences):
-    bl_idname = "omcp_blender"
+class OpenMcpAddonPreferences(bpy.types.AddonPreferences):
+    bl_idname = "open-mcp-blender"
 
     domain_id: IntProperty(
         name="ROS 2 domain ID",  # noqa: F722
@@ -27,12 +27,12 @@ class OmcpAddonPreferences(bpy.types.AddonPreferences):
 
     def draw(self, context):
         self.layout.prop(self, "domain_id")
-        self.layout.operator("omcp.restart_and_reload_preferences")
+        self.layout.operator("open-mcp.restart_and_reload_preferences")
 
 
 def register():
-    bpy.utils.register_class(ReloadOmcpAddonOperator)
-    bpy.utils.register_class(OmcpAddonPreferences)
+    bpy.utils.register_class(ReloadOpenMcpAddonOperator)
+    bpy.utils.register_class(OpenMcpAddonPreferences)
 
 
 def unregister():
