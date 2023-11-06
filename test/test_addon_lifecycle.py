@@ -5,7 +5,7 @@ import pytest
 @pytest.fixture
 def open_mcp_blender(blender):
     blender.bootstrap()
-    blender.install_addon("open-mcp-blender")
+    blender.install_addon("open_mcp_blender")
     yield blender
     blender.teardown()
 
