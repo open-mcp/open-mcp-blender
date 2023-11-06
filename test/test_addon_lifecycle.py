@@ -23,7 +23,7 @@ def test_enabled(open_mcp_blender):
 
     enabled_addon_names = bpy.context.preferences.addons.keys()
 
-    assert "open-mcp-blender" in enabled_addon_names
+    assert "open_mcp_blender" in enabled_addon_names
 
 
 def test_ensure_no_rclpy_shutdown_after_unregister(open_mcp_blender):
@@ -47,7 +47,7 @@ def test_ensure_cannot_enable_with_no_rclpy_context(open_mcp_blender):
     addon_utils.enable("open-mcp-blender", default_set=True)
 
     enabled_addon_names = bpy.context.preferences.addons.keys()
-    assert "open-mcp-blender" not in enabled_addon_names
+    assert "open_mcp_blender" not in enabled_addon_names
 
 
 def test_restart_and_reload_preferences(open_mcp_blender):
