@@ -6,7 +6,7 @@ from setuptools import setup
 setup(
     name="open-mcp-blender",
     version="0.1.0",
-    packages=["open-mcp-blender"],
+    packages=["open_mcp_blender"],
     data_files=[
         ("share/ament_index/resource_index/packages", ["resource/open-mcp-blender"]),
         ("share/open-mcp-blender", ["package.xml"]),
